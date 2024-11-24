@@ -15,7 +15,9 @@ on:
       -  'feat/**'	#feat/new      feat/new/button
     paths:
       - '.github/workflows/*'
- 
+
+# Added comments in Dev-max
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
