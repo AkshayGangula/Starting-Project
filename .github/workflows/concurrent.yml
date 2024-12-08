@@ -1,0 +1,16 @@
+name: Concurrent Workflow
+on: 
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment"
+                type: environment
+                required: true
+concurrency:                                # we can also write ``concurrency: GroupName`` only if there are no extra conditions
+    group: ${{ inputs.environment }}                     
+    cancel-in-progress: true                # this will run only the latest.....all the older wf are skipped
+jobs:
+    sleep:
+        runs-on: ubuntu-latest
+        steps:
+            - run: sleep 30
